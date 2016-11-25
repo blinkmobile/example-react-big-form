@@ -39,7 +39,7 @@
     "testRegex": "/__tests__/[^\\/]*\\.js$|\\.test\\.js$"
   },
   "keywords": [],
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "main": "index.js",
   "private": true,
   "scripts": {
