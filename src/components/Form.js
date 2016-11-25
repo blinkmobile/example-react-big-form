@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 import DateTimeField from './DateTimeField.js'
 import Field from './Field.js'
@@ -11,7 +11,15 @@ class Form extends Component {
   constructor (props) {
     super(props)
 
+    this.handleFieldChange = this.handleFieldChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleFieldChange (name, value) {
+    const { onChange, value: record } = this.props
+    if (onChange) {
+      onChange(Object.assign({}, record, { [name]: value }))
+    }
   }
 
   handleSubmit (event) {
@@ -24,22 +32,26 @@ class Form extends Component {
         <h2 className='Form-heading'>Form</h2>
 
         { (new Array(200)).fill(null).map((unused, index) => {
+          const name = `field${index}`
           if (index % 10 === 0) {
-            return <DateTimeField key={index} label={`Field ${index}`} />
+            return <DateTimeField key={index} label={`Field ${index}`} name={name} />
           }
           if (index % 10 === 3) {
-            return <SelectField key={index} label={`Field ${index}`} />
+            return <SelectField key={index} label={`Field ${index}`} name={name} />
           }
           if (index % 10 === 5) {
-            return <GeolocationField key={index} label={`Field ${index}`} />
+            return <GeolocationField key={index} label={`Field ${index}`} name={name} />
           }
-          return <Field key={index} label={`Field ${index}`} />
+          return <Field key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} />
         }) }
-
-        <input className='Form-submit' type='submit' value='Submit' />
       </form>
     )
   }
+}
+
+Form.propTypes = {
+  onChange: PropTypes.func,
+  value: PropTypes.object
 }
 
 export default Form

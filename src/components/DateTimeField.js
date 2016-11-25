@@ -39,7 +39,8 @@ class DateTimeField extends Component {
 }
 
 DateTimeField.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default DateTimeField

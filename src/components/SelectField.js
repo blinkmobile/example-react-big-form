@@ -14,7 +14,8 @@ const SelectField = ({ label }) => (
 )
 
 SelectField.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default SelectField

@@ -2,3 +2,7 @@
   padding: 2rem;
   text-align: left
 }
+
+.NewRecord-submit {
+  width: 100%;
+}

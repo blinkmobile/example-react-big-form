@@ -39,7 +39,8 @@ class GeolocationField extends Component {
 }
 
 GeolocationField.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default GeolocationField
