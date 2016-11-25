@@ -4,6 +4,7 @@ import { IndexRedirect, Router, Route, hashHistory } from 'react-router'
 
 import App from './App.js'
 import Home from './views/Home.js'
+import NewRecord from './views/NewRecord.js'
 
 import './index.css'
 
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Route path='/' component={App}>
       <IndexRedirect to='/home' />
       <Route path='home' component={Home} />
+      <Route path='newrecord' component={NewRecord} />
     </Route>
   </Router>,
   document.getElementById('root')
