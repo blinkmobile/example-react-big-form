@@ -1,0 +1,9 @@
+.GeolocationField {
+  border: 0;
+  width: 100%;
+}
+
+.GeolocationField-label,
+.GeolocationField-input {
+  margin: .2rem;
+}

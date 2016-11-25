@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Field from './Field.js'
+import GeolocationField from './GeolocationField.js'
 import SelectField from './SelectField.js'
 
 import './Form.css'
@@ -24,6 +25,9 @@ class Form extends Component {
         { (new Array(200)).fill(null).map((unused, index) => {
           if (index % 10 === 3) {
             return <SelectField key={index} label={`Field ${index}`} />
+          }
+          if (index % 10 === 5) {
+            return <GeolocationField key={index} label={`Field ${index}`} />
           }
           return <Field key={index} label={`Field ${index}`} />
         }) }
