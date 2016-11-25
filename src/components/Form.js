@@ -35,7 +35,7 @@ class Form extends Component {
         { (new Array(200)).fill(null).map((unused, index) => {
           const name = `field${index}`
           if (index % 10 === 0) {
-            return <DateTimeField key={index} label={`Field ${index}`} name={name} />
+            return <DateTimeField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
           }
           if (index % 10 === 3) {
             return <SelectField key={index} label={`Field ${index}`} name={name} />
