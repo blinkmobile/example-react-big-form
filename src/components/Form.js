@@ -27,6 +27,7 @@ class Form extends Component {
   }
 
   render () {
+    const value = this.props.value || {}
     return (
       <form className='Form' onSubmit={this.handleSubmit}>
         <h2 className='Form-heading'>Form</h2>
@@ -42,7 +43,7 @@ class Form extends Component {
           if (index % 10 === 5) {
             return <GeolocationField key={index} label={`Field ${index}`} name={name} />
           }
-          return <Field key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} />
+          return <Field key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
         }) }
       </form>
     )

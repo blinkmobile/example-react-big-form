@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 import records from '../store/records.js'
 
@@ -10,7 +11,7 @@ const ExistingRecords = () => (
 
     <ul>
       { Array.from(records.entries()).map(([ id, record ]) => (
-        <li key={id}>{id}</li>
+        <li key={id}><Link to={`/existingrecords/${id}`}>{id}</Link></li>
       )) }
     </ul>
   </div>
