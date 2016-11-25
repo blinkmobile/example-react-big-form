@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Field from './Field.js'
+import SelectField from './SelectField.js'
 
 import './Form.css'
 
@@ -18,13 +19,16 @@ class Form extends Component {
   render () {
     return (
       <form className='Form' onSubmit={this.handleSubmit}>
-        <h2>Form</h2>
+        <h2 className='Form-heading'>Form</h2>
 
-        { (new Array(100)).fill(null).map((unused, index) => (
-          <Field key={index} label={`Field ${index}`} />
-        )) }
+        { (new Array(200)).fill(null).map((unused, index) => {
+          if (index % 10 === 3) {
+            return <SelectField key={index} label={`Field ${index}`} />
+          }
+          return <Field key={index} label={`Field ${index}`} />
+        }) }
 
-        <input type='submit' value='Submit' />
+        <input className='Form-submit' type='submit' value='Submit' />
       </form>
     )
   }

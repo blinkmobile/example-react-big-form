@@ -1,1 +1,6 @@
 .Form {}
+
+.Form-heading,
+.Form-submit {
+  width: 100%;
+}

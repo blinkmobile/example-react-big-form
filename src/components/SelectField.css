@@ -1,0 +1,8 @@
+.SelectField {
+  border: 0;
+}
+
+.SelectField-label,
+.SelectField-input {
+  margin: .2rem;
+}

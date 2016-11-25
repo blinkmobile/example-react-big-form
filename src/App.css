@@ -1,4 +1,9 @@
+*, *::after, *::before {
+  box-sizing: inherit
+}
+
 .App {
+  box-sizing: border-box;
   text-align: center;
 }
 
