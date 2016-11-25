@@ -1,0 +1,9 @@
+.DateTimeField {
+  border: 0;
+  width: 100%;
+}
+
+.DateTimeField-label,
+.DateTimeField-input {
+  margin: .2rem;
+}
