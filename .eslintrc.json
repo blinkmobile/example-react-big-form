@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "node"
+  ],
+  "rules": {
+    "node/no-unsupported-features": 0
+  }
+}

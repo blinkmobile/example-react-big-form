@@ -1,18 +1,53 @@
 {
   "name": "example-react-big-form",
   "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-scripts": "0.7.0"
-  },
+  "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
   "dependencies": {
     "react": "15.4.1",
     "react-dom": "15.4.1"
   },
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-config-standard-react": "^4.2.0",
+    "eslint-plugin-node": "^3.0.4",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.7.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "fixpack": "^2.3.1",
+    "flow-bin": "^0.36.0",
+    "jest": "^17.0.3",
+    "react-scripts": "^0.7.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=7",
+    "npm": ">=3"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    },
+    "testRegex": "/__tests__/[^\\/]*\\.js$|\\.test\\.js$"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint --fix --cache .",
+    "fixpack": "fixpack",
+    "flow_check": "flow check",
+    "jest": "jest",
+    "posttest": "npm run eslint && npm run flow_check && npm run fixpack",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   }
 }
