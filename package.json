@@ -4,7 +4,8 @@
   "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
   "dependencies": {
     "react": "15.4.1",
-    "react-dom": "15.4.1"
+    "react-dom": "15.4.1",
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^3.10.2",
