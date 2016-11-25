@@ -6,8 +6,7 @@ import './App.css'
 
 class App extends Component {
   render () {
-    console.log(this.props)
-    const { path } = this.props.route
+    const { path } = this.props.route || {}
     const isHome = path !== '/' && path !== '/home'
     return (
       <div className='App'>

@@ -1,0 +1,8 @@
+.Field {
+  border: 0;
+}
+
+.Field-label,
+.Field-input {
+  margin: .2rem;
+}
