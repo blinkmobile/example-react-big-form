@@ -1,6 +1,8 @@
 import debounce from 'lodash.debounce'
 import React, { PropTypes, PureComponent } from 'react'
 
+import Field from './Field.js'
+
 import './TextField.css'
 
 class TextField extends PureComponent {
@@ -37,10 +39,9 @@ class TextField extends PureComponent {
     const { label } = this.props
     const { value } = this.state
     return (
-      <fieldset className='TextField'>
-        <label className='TextField-label'>{label}</label>
+      <Field label={label}>
         <input className='TextField-input' type='text' onBlur={this.notifyOnChangeNow} onChange={this.handleValueChange} value={value} />
-      </fieldset>
+      </Field>
     )
   }
 }

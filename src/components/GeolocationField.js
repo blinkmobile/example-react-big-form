@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import Field from './Field.js'
+
 import './GeolocationField.css'
 
 class GeolocationField extends Component {
@@ -40,16 +42,12 @@ class GeolocationField extends Component {
     const { label } = this.props
     const { value } = this.state
     const { latitude, longitude } = value || {}
-    if (latitude || longitude) {
-
-    }
     const displayValue = (latitude || longitude) ? JSON.stringify(value) : ''
     return (
-      <fieldset className='GeolocationField'>
-        <label className='GeolocationField-label'>{label}</label>
+      <Field label={label}>
         <input className='GeolocationField-input' type='text' readOnly value={displayValue} />
         <button onClick={this.handleLocateClick}>Locate</button>
-      </fieldset>
+      </Field>
     )
   }
 }

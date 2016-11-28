@@ -1,6 +1,8 @@
 import debounce from 'lodash.debounce'
 import React, { PropTypes, PureComponent } from 'react'
 
+import Field from './Field.js'
+
 import './DateTimeField.css'
 
 const toISOString = (date) => date.toISOString().replace('Z', '')
@@ -45,11 +47,10 @@ class DateTimeField extends PureComponent {
     const { label } = this.props
     const { value } = this.state
     return (
-      <fieldset className='DateTimeField'>
-        <label className='DateTimeField-label'>{label}</label>
+      <Field label={label}>
         <input className='DateTimeField-input' type='datetime-local' onBlur={this.notifyOnChangeNow} onChange={this.handleValueChange} value={value} />
         <button onClick={this.handleNowClick}>Now</button>
-      </fieldset>
+      </Field>
     )
   }
 }

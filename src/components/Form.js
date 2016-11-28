@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
 import DateTimeField from './DateTimeField.js'
-import TextField from './TextField.js'
 import GeolocationField from './GeolocationField.js'
 import SelectField from './SelectField.js'
+import TextField from './TextField.js'
 
 import './Form.css'
 

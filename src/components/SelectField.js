@@ -1,5 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react'
 
+import Field from './Field.js'
+
 import './SelectField.css'
 
 class SelectField extends PureComponent {
@@ -34,14 +36,13 @@ class SelectField extends PureComponent {
     const { label } = this.props
     const { value } = this.state
     return (
-      <fieldset className='SelectField'>
-        <label className='SelectField-label'>{label}</label>
+      <Field label={label}>
         <select className='SelectField-input' onChange={this.handleValueChange} value={value}>
           { (new Array(100)).fill(null).map((unused, index) => (
             <option key={index} value={index}>{index}</option>
           )) }
         </select>
-      </fieldset>
+      </Field>
     )
   }
 }
