@@ -11,7 +11,10 @@ const randomRecordData = () => {
     } else if (index % 10 === 3) {
       record[name] = chance.integer({ min: 0, max: 99 })
     } else if (index % 10 === 5) {
-      record[name] = {}
+      record[name] = {
+        latitude: chance.floating({ min: -179.9999, max: 180 }),
+        longitude: chance.floating({ min: -179.9999, max: 180 })
+      }
     } else {
       record[name] = chance.sentence({ words: chance.integer({ min: 1, max: 4 }) })
     }

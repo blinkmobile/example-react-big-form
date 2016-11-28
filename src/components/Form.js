@@ -41,7 +41,7 @@ class Form extends Component {
             return <SelectField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
           }
           if (index % 10 === 5) {
-            return <GeolocationField key={index} label={`Field ${index}`} name={name} />
+            return <GeolocationField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]}  />
           }
           return <Field key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
         }) }
