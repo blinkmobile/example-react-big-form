@@ -14,11 +14,11 @@ class DateTimeField extends PureComponent {
     this.notifyOnChange = debounce(this.notifyOnChangeNow.bind(this), 500)
 
     this.state = {
-      value: this.props.value
+      value: this.props.value || ''
     }
   }
 
-  componentWillReceiveProps ({ value }) {
+  componentWillReceiveProps ({ value = '' }) {
     this.setState({ value })
   }
 
