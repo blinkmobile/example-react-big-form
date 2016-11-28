@@ -2,15 +2,15 @@ import Chance from 'chance'
 import React, { Component, PropTypes } from 'react'
 
 import Form from '../components/Form.js'
-import { checkValidity } from '../forms/record.js'
-import records from '../store/records.js'
+import { checkValidity } from '../forms/bigform.js'
+import records from '../store/bigforms.js'
 
 
-import './NewRecord.css'
+import './NewBigForm.css'
 
 const chance = new Chance()
 
-class NewRecord extends Component {
+class NewBigForm extends Component {
   constructor (props) {
     super(props)
 
@@ -39,17 +39,17 @@ class NewRecord extends Component {
 
   render () {
     return (
-      <div className='NewRecord'>
-        <h1>NewRecord</h1>
+      <div className='NewBigForm'>
+        <h1>NewBigForm</h1>
         <Form onChange={this.handleFormChange} value={this.state.form} checkValidity={checkValidity} />
-        <button className='NewRecord-submit' onClick={this.handleSubmit}>Submit</button>
+        <button className='NewBigForm-submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
 }
 
-NewRecord.propTypes = {
+NewBigForm.propTypes = {
   router: PropTypes.object
 }
 
-export default NewRecord
+export default NewBigForm

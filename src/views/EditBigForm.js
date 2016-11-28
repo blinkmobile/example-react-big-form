@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 
 import Form from '../components/Form.js'
-import { checkValidity } from '../forms/record.js'
-import records from '../store/records.js'
+import { checkValidity } from '../forms/bigform.js'
+import records from '../store/bigforms.js'
 
-import './EditRecord.css'
+import './EditBigForm.css'
 
-class EditRecord extends Component {
+class EditBigForm extends Component {
   constructor (props) {
     super(props)
 
@@ -38,20 +38,20 @@ class EditRecord extends Component {
 
   render () {
     return (
-      <div className='EditRecord'>
-        <h1>EditRecord</h1>
+      <div className='EditBigForm'>
+        <h1>EditBigForm</h1>
         <Form onChange={this.handleFormChange} value={this.state.form} checkValidity={checkValidity} />
-        <button className='EditRecord-submit' onClick={this.handleSubmit}>Submit</button>
+        <button className='EditBigForm-submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
 }
 
-EditRecord.propTypes = {
+EditBigForm.propTypes = {
   params: PropTypes.shape({
     id: PropTypes.string
   }),
   router: PropTypes.object
 }
 
-export default EditRecord
+export default EditBigForm

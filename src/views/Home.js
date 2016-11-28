@@ -6,8 +6,8 @@ import './Home.css'
 const Home = () => (
   <div className='Home'>
     <ul>
-      <li><Link to='/newrecord'>New Record</Link></li>
-      <li><Link to='/existingrecords'>Existing Records</Link></li>
+      <li><Link to='/newbigform'>New Record</Link></li>
+      <li><Link to='/existingbigforms'>Existing Records</Link></li>
     </ul>
   </div>
 )
