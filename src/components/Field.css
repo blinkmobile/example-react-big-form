@@ -2,7 +2,12 @@
   border: 0;
 }
 
+.Field-errors,
 .Field-label,
 .Field-input {
   margin: .2rem;
+}
+
+.Field-errors {
+  color: red;
 }

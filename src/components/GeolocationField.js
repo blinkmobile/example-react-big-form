@@ -39,12 +39,12 @@ class GeolocationField extends Component {
   }
 
   render () {
-    const { label } = this.props
+    const { errors, label, required } = this.props
     const { value } = this.state
     const { latitude, longitude } = value || {}
     const displayValue = (latitude || longitude) ? JSON.stringify(value) : ''
     return (
-      <Field label={label}>
+      <Field errors={errors} label={label} required={required}>
         <input className='GeolocationField-input' type='text' readOnly value={displayValue} />
         <button onClick={this.handleLocateClick}>Locate</button>
       </Field>
@@ -53,6 +53,7 @@ class GeolocationField extends Component {
 }
 
 GeolocationField.propTypes = {
+  errors: PropTypes.array,
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,

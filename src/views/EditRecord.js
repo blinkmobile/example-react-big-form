@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import Form from '../components/Form.js'
+import { checkValidity } from '../forms/record.js'
 import records from '../store/records.js'
 
 import './EditRecord.css'
@@ -23,6 +24,11 @@ class EditRecord extends Component {
   }
 
   handleSubmit () {
+    const errors = checkValidity(this.state.form)
+    if (Object.keys(errors).length) {
+      return
+    }
+
     const { id } = this.props.params || {}
     if (id) {
       records.set(id, this.state.form)
@@ -34,7 +40,7 @@ class EditRecord extends Component {
     return (
       <div className='EditRecord'>
         <h1>EditRecord</h1>
-        <Form onChange={this.handleFormChange} value={this.state.form} />
+        <Form onChange={this.handleFormChange} value={this.state.form} checkValidity={checkValidity} />
         <button className='EditRecord-submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )

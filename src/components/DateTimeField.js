@@ -44,10 +44,10 @@ class DateTimeField extends PureComponent {
   }
 
   render () {
-    const { label } = this.props
+    const { errors, label, required } = this.props
     const { value } = this.state
     return (
-      <Field label={label}>
+      <Field errors={errors} label={label} required={required}>
         <input className='DateTimeField-input' type='datetime-local' onBlur={this.notifyOnChangeNow} onChange={this.handleValueChange} value={value} />
         <button onClick={this.handleNowClick}>Now</button>
       </Field>
@@ -56,6 +56,7 @@ class DateTimeField extends PureComponent {
 }
 
 DateTimeField.propTypes = {
+  errors: PropTypes.array,
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,

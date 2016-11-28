@@ -5,6 +5,7 @@
   "dependencies": {
     "chance": "^1.0.4",
     "lodash.debounce": "^4.0.8",
+    "lodash.memoize": "^4.1.2",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-router": "^3.0.0"
