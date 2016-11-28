@@ -1,0 +1,8 @@
+.TextField {
+  border: 0;
+}
+
+.TextField-label,
+.TextField-input {
+  margin: .2rem;
+}

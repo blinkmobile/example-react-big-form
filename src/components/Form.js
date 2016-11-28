@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import DateTimeField from './DateTimeField.js'
-import Field from './Field.js'
+import TextField from './TextField.js'
 import GeolocationField from './GeolocationField.js'
 import SelectField from './SelectField.js'
 
@@ -46,7 +46,7 @@ class Form extends Component {
           if (index % 10 === 7 && !value[`field${index - 1}`]) {
             return null
           }
-          return <Field key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
+          return <TextField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} />
         }) }
       </form>
     )
