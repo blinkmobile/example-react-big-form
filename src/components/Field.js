@@ -9,13 +9,14 @@ class Field extends PureComponent {
 
     this.handleValueChange = this.handleValueChange.bind(this)
     this.notifyOnChange = debounce(this.notifyOnChangeNow.bind(this), 500)
+    this.notifyOnChangeNow = this.notifyOnChangeNow.bind(this)
 
     this.state = {
-      value: props.value
+      value: props.value || ''
     }
   }
 
-  componentWillReceiveProps ({ value }) {
+  componentWillReceiveProps ({ value = '' }) {
     this.setState({ value })
   }
 
