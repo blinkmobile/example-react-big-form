@@ -7,7 +7,7 @@ const randomRecordData = () => {
   ;(new Array(200)).fill(null).forEach((unused, index) => {
     const name = `field${index}`
     if (index % 10 === 0) {
-      record[name] = (new Date(chance.timestamp())).toISOString().replace('Z', '')
+      record[name] = (new Date(chance.timestamp() * 1e3)).toISOString().replace('Z', '')
     } else if (index % 10 === 3) {
       record[name] = chance.integer({ min: 0, max: 99 })
     } else if (index % 10 === 5) {
