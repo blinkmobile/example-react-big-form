@@ -27,7 +27,7 @@ class Form extends Component {
   }
 
   render () {
-    const { checkValidity } = this.props
+    const { checkValidity, schema } = this.props.form
     const value = this.props.value || {}
 
     const errors = checkValidity(value)
@@ -36,22 +36,34 @@ class Form extends Component {
       <form className='Form' onSubmit={this.handleSubmit}>
         <h2 className='Form-heading'>Form</h2>
 
-        { (new Array(200)).fill(null).map((unused, index) => {
-          const name = `field${index}`
-          let isRequired = index % 23 === 0
-          if (index % 10 === 0) {
-            return <DateTimeField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
-          }
-          if (index % 10 === 3) {
-            return <SelectField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
-          }
-          if (index % 10 === 5) {
-            return <GeolocationField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]}  required={isRequired} errors={errors[name]} />
-          }
-          if (index % 10 === 7 && !value[`field${index - 1}`]) {
+        { Object.keys(schema.properties).map((name, index) => {
+          const field = schema.properties[name]
+          const isRequired = !!~schema.required.indexOf(name)
+
+          const isHiddenIfPrecedingIsEmpty = field.$bmforms && field.$bmforms.hiddenIfPrecedingIsEmpty
+          const isPrecedingEmpty = !value[`field${index - 1}`]
+
+          if (isHiddenIfPrecedingIsEmpty && isPrecedingEmpty) {
             return null
           }
-          return <TextField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
+
+          if (field.type === 'string' && field.format === 'date-time') {
+            return <DateTimeField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
+          }
+
+          if (field.type === 'integer') {
+            return <SelectField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
+          }
+
+          if (field.type === 'object' && field.properties.latitude && field.properties.longitude) {
+            return <GeolocationField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]}  required={isRequired} errors={errors[name]} />
+          }
+
+          if (field.type === 'string') {
+            return <TextField key={index} label={`Field ${index}`} name={name} onChange={this.handleFieldChange} value={value[name]} required={isRequired} errors={errors[name]} />
+          }
+
+          return null
         }) }
       </form>
     )
@@ -59,7 +71,10 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  checkValidity: PropTypes.func,
+  form: PropTypes.shape({
+    checkValidity: PropTypes.func,
+    schema: PropTypes.object
+  }),
   onChange: PropTypes.func,
   value: PropTypes.object
 }

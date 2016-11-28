@@ -1,21 +1,27 @@
 import Chance from 'chance'
 
+import { schema } from '../forms/bigform.js'
+
 const chance = new Chance()
 
 const randomRecordData = () => {
   const record = {}
-  ;(new Array(200)).fill(null).forEach((unused, index) => {
-    const name = `field${index}`
-    if (index % 10 === 0) {
+  Object.keys(schema.properties).forEach((name, index) => {
+    const field = schema.properties[name]
+
+    if (field.type === 'string' && field.format === 'date-time') {
       record[name] = (new Date(chance.timestamp() * 1e3)).toISOString().replace('Z', '')
-    } else if (index % 10 === 3) {
+
+    } else if (field.type === 'integer') {
       record[name] = chance.integer({ min: 0, max: 99 })
-    } else if (index % 10 === 5) {
+
+    } else if (field.type === 'object' && field.properties.latitude && field.properties.longitude) {
       record[name] = {
         latitude: chance.floating({ min: -179.9999, max: 180 }),
         longitude: chance.floating({ min: -179.9999, max: 180 })
       }
-    } else {
+
+    } else if (field.type === 'string') {
       record[name] = chance.sentence({ words: chance.integer({ min: 1, max: 4 }) })
     }
   })

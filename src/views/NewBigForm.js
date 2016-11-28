@@ -2,7 +2,7 @@ import Chance from 'chance'
 import React, { Component, PropTypes } from 'react'
 
 import Form from '../components/Form.js'
-import { checkValidity } from '../forms/bigform.js'
+import bigform, { checkValidity } from '../forms/bigform.js'
 import records from '../store/bigforms.js'
 
 
@@ -41,7 +41,7 @@ class NewBigForm extends Component {
     return (
       <div className='NewBigForm'>
         <h1>NewBigForm</h1>
-        <Form onChange={this.handleFormChange} value={this.state.form} checkValidity={checkValidity} />
+        <Form onChange={this.handleFormChange} value={this.state.form} form={bigform} />
         <button className='NewBigForm-submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )

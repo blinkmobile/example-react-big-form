@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import Form from '../components/Form.js'
-import { checkValidity } from '../forms/bigform.js'
+import bigform, { checkValidity } from '../forms/bigform.js'
 import records from '../store/bigforms.js'
 
 import './EditBigForm.css'
@@ -40,7 +40,7 @@ class EditBigForm extends Component {
     return (
       <div className='EditBigForm'>
         <h1>EditBigForm</h1>
-        <Form onChange={this.handleFormChange} value={this.state.form} checkValidity={checkValidity} />
+        <Form onChange={this.handleFormChange} value={this.state.form} form={bigform} />
         <button className='EditBigForm-submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
